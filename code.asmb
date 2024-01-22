@@ -1,21 +1,105 @@
-set_char H
+
+set 255
+function left_anchor
+    until 255
+        move_left 1
+    end
+end
+
+
+function add
+    until 0
+        sub 1
+        move_right 1
+        add 1
+        move_left 1
+    end
+end
+
+function sub
+    move_right 1
+    until 0
+        sub 1
+        move_left 1
+        sub 1
+        move_right 1
+    end
+end
+
+function mul
+    move_right 1
+    until 0
+        sub 1
+        move_left 1
+        sub 1
+        move_right 1
+    end
+end
+
+
+move_right 1
+input
+move_right 2
+input
+move_left 1
+input
+
+
++ (Plus sign): ASCII value 43
+- (Minus sign): ASCII value 45
+* (Asterisk): ASCII value 42
+/ (Forward slash): ASCII value 47
+
+-- Add
+move_right 1
+unless 45
+unless 42
+unless 47
+move_left 2
+call add
+call left_anchor
+move_right 2
 print
-set_char e
+end
+end
+end
+
+
+-- Substract
+call left_anchor
+move_right 3
+unless 43
+unless 42
+unless 47
+move_left 2
+call sub
+call left_anchor
+move_right 1
 print
-set_char l
-print
-print
-set_char o
-print
-set_char " "
-print
-set_char w
-print
-set_char o
-print
-set_char r
-print
-set_char l
-print
-set_char d
-print
+end
+end
+end
+
+-- Multiply
+call left_anchor
+move_right 3
+unless 45
+unless 43
+unless 47
+move_left 2
+call add
+end
+end
+end
+
+-- Divide
+call left_anchor
+move_right 3
+unless 45
+unless 42
+unless 43
+move_left 2
+call add
+end
+end
+end
